@@ -19,6 +19,9 @@ preco decimal(7,2),
 descricao varchar(250)
 ); 
 
+alter table cardapio 
+add column estoque int;
+
 CREATE TABLE pedido (
 id_pedido int not null primary key,
 quantidade int,
@@ -91,3 +94,30 @@ insert into pedido(id_pedido, quantidade, data_hora, id_cardapio, id_comanda) va
 (20,1,'2025-03-01 13:50:00',2,2),
 (21,1,'2025-03-01 13:50:00',15,2),
 (22,1,'2025-03-01 13:50:00',20,2);
+
+insert into pedido(id_pedido, quantidade, data_hora, id_cardapio, id_comanda) values
+(23,1,'2025-03-01 13:50:00',17,2),
+(24,1,'2025-03-01 13:45:00',17,2);
+
+ into cardapio(estoque) values 
+(137),
+(110),
+(97),
+(36),
+(49),
+(220),
+(130),
+(170),
+(150),
+(25),
+(28),
+(37),
+(99),
+(200),
+(111),
+(22),
+(10),
+(300),
+(222),
+(405);
+  
