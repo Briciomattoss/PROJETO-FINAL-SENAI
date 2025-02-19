@@ -34,3 +34,35 @@ order by quant desc;
 
 -- Criar uma procedure que atualize a quantidade em estoque de um item do cardápio.
 
+DELIMITER $$
+
+CREATE PROCEDURE atualizar_estoque(v_estoque int, v_id_cardapio int)
+begin 
+
+
+update cardapio  set estoque = estoque+ v_estoque where id_cardapio = v_id_cardapio; 
+end $$
+
+delimiter ;
+
+call atualizar_estoque (3,1);
+
+select * from pedido;
+
+
+-- Criar uma trigger que subtraia a quantidade em estoque de um tem do cardápio quando for solicitado em um pedido.
+
+delimiter $$
+
+create trigger saida_estoque 
+after insert on pedido 
+for each row
+	begin
+    
+	update cardapio set estoque = estoque - new.quantidade where id_cardapio = new.id_cardapio ;
+    
+    end $$
+    
+Delimiter ;
+
+    
