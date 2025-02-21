@@ -6,7 +6,7 @@ GRANT INSERT, UPDATE, SELECT ON PIZZARIA.* TO 'Luiz-Maia'@'%';
 
 -- Informe o ip do seu computador para o instrutor:
 
--- 192.168.56.1;
+-- 172.16.2.0
 
 -- Monitore as operações realizadas na tabela de auditoria au_pizza:
 USE pizzaria;
