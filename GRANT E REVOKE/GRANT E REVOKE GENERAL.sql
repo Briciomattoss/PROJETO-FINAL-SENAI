@@ -28,7 +28,7 @@ CREATE TRIGGER depois_insert_pizza
 AFTER INSERT ON pizza
 FOR EACH ROW
 BEGIN
-	INSERT INTO au_pizza(id_pizza, sabor, ingredientes, usario, data_hora, operacao)
+	INSERT INTO au_pizza(id_pizza, sabor, ingredientes, usuario, data_hora, operacao)
     VALUES (NEW.id_pizza, NEW.sabor, NEW.ingredientes, user(), now(), 'inser');
 END$$
 
