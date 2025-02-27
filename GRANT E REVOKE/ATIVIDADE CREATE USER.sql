@@ -19,7 +19,7 @@ CREATE TRIGGER depois_insert_pizza
 AFTER UPDATE ON pizza
 FOR EACH ROW
 BEGIN
-	INSERT INTO au_pizza(id_pizza, sabor, ingredientes, usario, data_hora, operacao)
+	INSERT INTO au_pizza(id_pizza, sabor, ingredientes, usuario, data_hora, operacao)
     VALUES (OLD.id_pizza, OLD.sabor, OLD.ingredientes, user(), now(), 'update');
 END$$
 
@@ -31,7 +31,7 @@ CREATE TRIGGER depois_delete_pizza
 AFTER DELETE ON pizza
 FOR EACH ROW
 BEGIN
-	INSERT INTO au_pizza(id_pizza, sabor, ingredientes, usario, data_hora, operacao)
+	INSERT INTO au_pizza(id_pizza, sabor, ingredientes, usuario, data_hora, operacao)
     VALUES (OLD.id_pizza, OLD.sabor, OLD.ingredientes, user(), now(), 'delete');
 END$$
 
